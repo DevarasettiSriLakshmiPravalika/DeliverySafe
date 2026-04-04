@@ -159,8 +159,50 @@ https://www.youtube.com/watch?v=IxMxBYXhohs
 
 ---
 
-## Why This Matters
+## How to Run the MVP
 
-Delivery partners are the backbone of India's food economy — and they have almost no financial protection. DeliverSafe isn't just an insurance product. It's a statement that gig workers deserve the same income stability that salaried employees take for granted.
+### Prerequisites
+- Java 17+
+- Maven
+- Node.js & npm
+- MySQL (running on localhost:3306)
 
-We've built a system that pays people what they're actually owed, the moment they need it, without requiring them to fight for it.
+### 1. Setup Database
+Create a database named `deliverysafe` in MySQL:
+```sql
+CREATE DATABASE deliverysafe;
+```
+Update `backend/src/main/resources/application.properties` with your MySQL username and password if different from `root`/`password`.
+
+### 2. Run Backend
+```bash
+cd backend
+mvn spring-boot:run
+```
+The backend will start on `http://localhost:8080`.
+
+### 3. Run Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The frontend will start on `http://localhost:5173`.
+
+---
+
+## Demo Flow
+
+1. **Open Dashboard**: The app automatically initializes a "Demo User" in the database.
+2. **Environment Data**: Shows current (safe) conditions.
+3. **Trigger Disruption**: Use the "Simulate Events" panel on the right.
+   - Click **"Simulate Heavy Rain"** (Rainfall > 50mm).
+4. **Automatic Payout**:
+   - System detects the risk.
+   - Calculates payout: `Hours Lost (4) * Hourly Earnings (₹80) = ₹320`.
+   - **"Payout Triggered!"** alert appears.
+   - Claim status updates to **Approved**.
+   - **Payout History** updates in real-time with the new entry from the database.
+5. **Fraud Simulation**:
+   - Click **"Simulate Suspicious Activity"**.
+   - Trust score drops, and detailed **Fraud Insights** appear.
