@@ -155,7 +155,7 @@ Weekly premiums range from **₹20 to ₹50**, dynamically priced based on:
 
 ## Demo
 
-> Demo video is currently under development and will be included in Phase 2 submission.
+https://www.youtube.com/watch?v=IxMxBYXhohs
 
 ---
 
