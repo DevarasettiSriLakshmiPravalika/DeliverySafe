@@ -107,4 +107,4 @@ Every payout undergoes a multi-layer verification check via `TrustScoreService`:
 
 ## License
 
-This project is open-source. See the repository for specific licensing details.
+This project is open-source.
